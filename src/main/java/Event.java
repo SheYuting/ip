@@ -3,10 +3,10 @@ public class Event extends Task {
     private String start;
     private String end;
 
-    Event(String name, String[] strings) {
+    Event(String name, String start, String end) {
         super(name);
-        this.start = strings[1];
-        this.end = strings[2];
+        this.start = start;
+        this.end = end;
     }
 
     public String toString() {
