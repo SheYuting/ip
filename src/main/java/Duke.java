@@ -2,14 +2,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Duke {
-    private static ArrayList<String> toDoList = new ArrayList<>();
+    private static ArrayList<Task> toDoList = new ArrayList<>();
     public static void main(String[] args) {
-        /*String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);*/
         greet();
 
         Scanner scanner = new Scanner(System.in);
@@ -21,6 +15,10 @@ public class Duke {
                 break;
             } else if (command.equals("list")) {
                 printList();
+            } else if (command.startsWith("mark")) {
+                markTask(command);
+            } else if (command.startsWith("unmark")) {
+                unmarkTask(command);
             } else {
                 addList(command);
             }
@@ -38,7 +36,7 @@ public class Duke {
 
     public static void addList(String command) {
         System.out.println("____________________________________________________________");
-        toDoList.add(command);
+        toDoList.add(new Task(command, "[ ]"));
         System.out.println("added: " + command);
         System.out.println("____________________________________________________________");
     }
@@ -50,9 +48,23 @@ public class Duke {
 
     public static void printList() {
         System.out.println("____________________________________________________________");
-        for (String s : toDoList) {
-            System.out.println(s);
+        System.out.println("Here are the tasks in your list:");
+        for (int i = 0; i < toDoList.size(); i++) {
+            int index = i + 1;
+            System.out.println(index + "." + toDoList.get(i).getName());
         }
         System.out.println("____________________________________________________________");
+    }
+
+    public static void unmarkTask(String command) {
+        int index = Integer.parseInt(command.split(" ")[1]);
+        Task targetTask = toDoList.get(index - 1);
+        targetTask.unmarkTask();
+    }
+
+    public static void markTask(String command) {
+        int index = Integer.parseInt(command.split(" ")[1]);
+        Task targetTask = toDoList.get(index - 1);
+        targetTask.markTask();
     }
 }
