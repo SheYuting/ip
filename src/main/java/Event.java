@@ -10,10 +10,7 @@ public class Event extends Task {
     }
 
     public String toString() {
-        String fromTokens = start.substring(5);
-        String toTokens = end.substring(3);
         return statum + super.toString() +
-                String.format(" (from: %s to: %s)",
-                        fromTokens, toTokens);
+                String.format(" (from: %s to: %s)", start, end);
     }
 }

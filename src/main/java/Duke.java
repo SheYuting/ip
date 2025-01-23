@@ -16,20 +16,12 @@ public class Duke {
                 break;
             } else if (command.equals("list")) {
                 printList();
-            } else if (command.startsWith("mark")) {
-                try {
-                    markTask(command);
-                } catch (Exception e) {
-                    printError(e.getMessage());
-                }
-            } else if (command.startsWith("unmark")) {
-                try {
-                    unmarkTask(command);
-                } catch (Exception e) {
-                    printError(e.getMessage());
-                }
             } else {
-                addTask(command);
+                try {
+                    processCommand(command);
+                } catch (DukeException e) {
+                    printError(e.getMessage());
+                }
             }
         }
 
@@ -42,50 +34,58 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    public static void addTask(String command) {
+    public static void processCommand(String command) throws DukeException {
+        if (command.startsWith("mark")) {
+            markTask(command);
+        } else if (command.startsWith("unmark")) {
+            unmarkTask(command);
+        } else if (command.startsWith("delete")) {
+            deleteTask(command);
+        } else {
+            addTask(command);
+        }
+    }
+
+    public static void addTask(String command) throws DukeException {
         System.out.println("____________________________________________________________");
         Task task;
-        try {
-            if (command.startsWith("todo")) {
-                if (command.length() <= 5) { // "todo " is 5 characters
-                    throw new IllegalArgumentException("The description of a todo cannot be empty.");
-                }
-                String description = command.substring(5).trim();
-                task = new Todo(description);
-            } else if (command.startsWith("deadline")) {
-                if (!command.contains(" /by ")) {
-                    throw new IllegalArgumentException("A deadline must have a description and a due date (use '/by').");
-                }
-                String[] parts = command.substring(9).split(" /by ");
-                if (parts.length < 2 || parts[0].isEmpty() || parts[1].isEmpty()) {
-                    throw new IllegalArgumentException("Incomplete deadline description or due date.");
-                }
-                task = new Deadline(parts[0].trim(), parts[1].trim());
-            } else if (command.startsWith("event")) {
-                if (!command.contains(" /from ") || !command.contains(" /to ")) {
-                    throw new IllegalArgumentException("An event must have a description, start time, and end time (use '/from' and '/to').");
-                }
-                String[] parts = command.substring(6).split(" /from ");
-                if (parts.length < 2 || parts[0].isEmpty()) {
-                    throw new IllegalArgumentException("Incomplete event description.");
-                }
-                String description = parts[0].trim();
-                String[] timeParts = parts[1].split(" /to ");
-                if (timeParts.length < 2 || timeParts[0].isEmpty() || timeParts[1].isEmpty()) {
-                    throw new IllegalArgumentException("Incomplete event time details.");
-                }
-                task = new Event(description, timeParts[0].trim(), timeParts[1].trim());
-            } else {
-                throw new IllegalArgumentException("I'm sorry, I don't understand that command.");
+        if (command.startsWith("todo")) {
+            if (command.length() <= 5) {
+                throw new DukeException("The description of a todo cannot be empty.");
             }
-
-            toDoList.add(task);
-            System.out.println("Got it. I've added this task:");
-            System.out.println(task);
-            checkTaskCount();
-        } catch (IllegalArgumentException e) {
-            printError(e.getMessage());
+            String description = command.substring(5).trim();
+            task = new Todo(description);
+        } else if (command.startsWith("deadline")) {
+            if (!command.contains(" /by ")) {
+                throw new DukeException("A deadline must have a description and a due date (use '/by').");
+            }
+            String[] parts = command.substring(9).split(" /by ");
+            if (parts.length < 2 || parts[0].isEmpty() || parts[1].isEmpty()) {
+                throw new DukeException("Incomplete deadline description or due date.");
+            }
+            task = new Deadline(parts[0].trim(), parts[1].trim());
+        } else if (command.startsWith("event")) {
+            if (!command.contains(" /from ") || !command.contains(" /to ")) {
+                throw new DukeException("An event must have a description, start time, and end time (use '/from' and '/to').");
+            }
+            String[] parts = command.substring(6).split(" /from ");
+            if (parts.length < 2 || parts[0].isEmpty()) {
+                throw new DukeException("Incomplete event description.");
+            }
+            String description = parts[0].trim();
+            String[] timeParts = parts[1].split(" /to ");
+            if (timeParts.length < 2 || timeParts[0].isEmpty() || timeParts[1].isEmpty()) {
+                throw new DukeException("Incomplete event time details.");
+            }
+            task = new Event(description, timeParts[0].trim(), timeParts[1].trim());
+        } else {
+            throw new DukeException("I'm sorry, I don't understand that command.");
         }
+
+        toDoList.add(task);
+        System.out.println("Got it. I've added this task:");
+        System.out.println(task);
+        checkTaskCount();
         System.out.println("____________________________________________________________");
     }
 
@@ -102,7 +102,18 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    public static void markTask(String command) throws IllegalArgumentException {
+    public static void deleteTask(String command) throws DukeException {
+        int index = parseTaskIndex(command, "delete");
+        Task task = toDoList.get(index);
+        toDoList.remove(index);
+        System.out.println("____________________________________________________________");
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  " + task);
+        checkTaskCount();
+        System.out.println("____________________________________________________________");
+    }
+
+    public static void markTask(String command) throws DukeException {
         int index = parseTaskIndex(command, "mark");
         Task task = toDoList.get(index);
         task.markTask();
@@ -112,7 +123,7 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    public static void unmarkTask(String command) throws IllegalArgumentException {
+    public static void unmarkTask(String command) throws DukeException {
         int index = parseTaskIndex(command, "unmark");
         Task task = toDoList.get(index);
         task.unmarkTask();
@@ -122,19 +133,19 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    private static int parseTaskIndex(String command, String action) throws IllegalArgumentException {
+    private static int parseTaskIndex(String command, String action) throws DukeException {
         String[] parts = command.split(" ");
         if (parts.length < 2) {
-            throw new IllegalArgumentException("Please specify the task number to " + action + ".");
+            throw new DukeException("Please specify the task number to " + action + ".");
         }
         try {
             int index = Integer.parseInt(parts[1]) - 1;
             if (index < 0 || index >= toDoList.size()) {
-                throw new IllegalArgumentException("Invalid task number. Please choose a valid task.");
+                throw new DukeException("Invalid task number. Please choose a valid task.");
             }
             return index;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Task number must be a valid integer.");
+            throw new DukeException("Task number must be a valid integer.");
         }
     }
 
@@ -144,6 +155,7 @@ public class Duke {
 
     public static void printError(String message) {
         System.out.println("OOPS!!! " + message);
+        System.out.println("____________________________________________________________");
     }
 
     public static void exit() {
