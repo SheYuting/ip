@@ -36,8 +36,28 @@ public class Duke {
 
     public static void addList(String command) {
         System.out.println("____________________________________________________________");
-        toDoList.add(new Task(command, "[ ]"));
-        System.out.println("added: " + command);
+        System.out.println("Got it. I've added this task:");
+        Task task;
+        if (command.startsWith("todo")) {
+            String taskDescription = command.substring(5);
+            task = new Todo(taskDescription);
+            toDoList.add(task);
+        } else if (command.startsWith("deadline")) {
+            command = command.substring(9);
+            String[] taskDescription = command.split(" /by ");
+            task = new Deadline(taskDescription[0], taskDescription[1]);
+            toDoList.add(task);
+        } else if (command.startsWith("event")) {
+            command = command.substring(6);
+            String[] taskDescription = command.split(" /");
+            task = new Event(taskDescription[0], taskDescription);
+            toDoList.add(task);
+        } else {
+            task = new Task(command);
+            toDoList.add(task);
+        }
+        System.out.println(task.toString());
+        check();
         System.out.println("____________________________________________________________");
     }
 
@@ -51,7 +71,7 @@ public class Duke {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < toDoList.size(); i++) {
             int index = i + 1;
-            System.out.println(index + "." + toDoList.get(i).getName());
+            System.out.println(index + "." + toDoList.get(i).toString());
         }
         System.out.println("____________________________________________________________");
     }
@@ -67,4 +87,10 @@ public class Duke {
         Task targetTask = toDoList.get(index - 1);
         targetTask.markTask();
     }
+
+    public static void check() {
+        System.out.println(String.format("Now you have %d tasks in the list.", toDoList.size()));
+    }
+
+
 }
