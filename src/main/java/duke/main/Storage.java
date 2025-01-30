@@ -7,6 +7,9 @@ import duke.task.Todo;
 import duke.task.Deadline;
 import duke.task.Event;
 
+/**
+ * Handles loading and saving of tasks to a file.
+ */
 public class Storage {
     private final String filePath;
 
@@ -14,6 +17,10 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * Saves tasks to the specified file.
+     * @param tasks The list of tasks to save.
+     */
     public void saveTasks(TaskList tasks) throws DukeException {
         try {
             File file = new File(filePath);
@@ -30,6 +37,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads tasks from the specified file.
+     *
+     * @param ui Take in the Ui to print error messages
+     * @return A TaskList of tasks loaded from the file.
+     */
     public TaskList loadTasks(Ui ui) throws DukeException {
         TaskList tasks = new TaskList();
         File file = new File(filePath);

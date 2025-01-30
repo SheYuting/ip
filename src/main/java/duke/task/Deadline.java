@@ -5,13 +5,22 @@ import duke.exception.DukeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task with a deadline.
+ */
 public class Deadline extends Task {
     private static final String STATUM = "[D]";
     private LocalDate date;
     private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("d/M/yyyy"); // e.g., 2/12/2019
     private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy"); // e.g., Dec 02 2019, 6:00 PM
 
-    // Constructor for a deadline with a specific date format
+    /**
+     * Constructs a Deadline task with a name and due date.
+     *
+     * @param name The name of the task.
+     * @param date The due date in "dd/MM/yyyy" format.
+     * @throws DukeException If the date format is incorrect.
+     */
     public Deadline(String name, String date) throws DukeException {
         super(name, false); // Call superclass constructor
         try {

@@ -5,6 +5,9 @@ import java.util.Scanner;
 import duke.task.Task;
 
 public class Ui {
+    /**
+     * Greets the user when the Duke application starts.
+     */
     public void showWelcome() {
         System.out.println("Hello! I'm main.Duke");
         System.out.println("What can I do for you?");
@@ -28,6 +31,9 @@ public class Ui {
         System.out.println("There was an error loading the tasks.");
     }
 
+    /**
+     * Displays a farewell message before exiting the application.
+     */
     public void showGoodbye() {
         System.out.println("Bye. Hope to see you again!");
         System.out.println("____________________________________________________________");
