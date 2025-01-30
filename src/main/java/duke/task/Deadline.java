@@ -30,7 +30,14 @@ public class Deadline extends Task {
         }
     }
 
-    // Constructor to include isDone
+    /**
+     * Constructs a Deadline task with a specified due date and completion status.
+     *
+     * @param name The name of the deadline task.
+     * @param date The due date in "d/M/yyyy" format.
+     * @param isDone Indicates whether the task is completed.
+     * @throws DukeException If the date format is invalid.
+     */
     public Deadline(String name, String date, boolean isDone) throws DukeException {
         super(name, isDone);
         try {
@@ -52,7 +59,11 @@ public class Deadline extends Task {
         return "D | " + (isDone ? "1" : "0") + " | " + this.name + " | " + this.date.format(INPUT_FORMAT);
     }
 
-    // Additional method to print date (for stretching goal)
+    /**
+     * Returns the formatted deadline date.
+     *
+     * @return The due date in "MMM dd yyyy" format.
+     */
     public String getFormattedDate() {
         return this.date.format(OUTPUT_FORMAT);
     }
