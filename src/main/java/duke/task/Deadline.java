@@ -42,9 +42,4 @@ public class Deadline extends Task {
         // Save the task in the original input format for consistency
         return "D | " + (isDone ? "1" : "0") + " | " + this.name + " | " + this.date.format(INPUT_FORMAT);
     }
-
-    // Additional method to print date (for stretching goal)
-    public String getFormattedDate() {
-        return this.date.format(OUTPUT_FORMAT);
-    }
 }
