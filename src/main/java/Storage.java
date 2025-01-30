@@ -2,13 +2,19 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Storage {
-    public static void saveTasks(String filePath, ArrayList<Task> tasks) throws DukeException {
+    private final String filePath;
+
+    public Storage(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public void saveTasks(TaskList tasks) throws DukeException {
         try {
             File file = new File(filePath);
             file.getParentFile().mkdirs(); // Ensure directory exists
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            for (Task task : tasks) {
+            for (Task task : tasks.getTasks()) {
                 writer.write(task.toFileFormat());
                 writer.newLine();
             }
@@ -18,8 +24,8 @@ public class Storage {
         }
     }
 
-    public static ArrayList<Task> loadTasks(String filePath) {
-        ArrayList<Task> tasks = new ArrayList<>();
+    public TaskList loadTasks(Ui ui) throws DukeException {
+        TaskList tasks = new TaskList();
         File file = new File(filePath);
 
         if (file.exists()) { file.delete(); }
@@ -29,21 +35,21 @@ public class Storage {
             String line;
             while ((line = reader.readLine()) != null) {
                 try {
-                    tasks.add(parseTask(line)); // Try parsing each line
+                    tasks.addTask(parseTask(line)); // Try parsing each line
                 } catch (DukeException e) {  // Catch DukeException here
-                    System.out.println("Corrupt data detected. Deleting existing file.");
+                    ui.printMessage("Corrupt data detected. Deleting existing file.");
                     file.delete(); // Delete corrupted file
-                    return new ArrayList<>(); // Return empty list
+                    return new TaskList(); // Return empty list
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error loading tasks: " + e.getMessage());
+            ui.printMessage("Error loading tasks: " + e.getMessage());
         }
 
         return tasks;
     }
 
-    private static Task parseTask(String line) throws DukeException {
+    private Task parseTask(String line) throws DukeException {
         String[] parts = line.split(" \\| ");
         if (parts.length < 3) throw new DukeException("Invalid file format.");
 

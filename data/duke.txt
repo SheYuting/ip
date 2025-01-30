@@ -1,2 +1,4 @@
-D | 0 | return book | 2/12/2019
-E | 0 | happy new year | 30/1/2025 | 15/2/2025
+D | 0 | return book | 21/12/2023
+T | 0 | borrow book
+E | 0 | project meeting | 21/12/2025 | 21/12/2026
+D | 1 | watch show | 20/2/2001
