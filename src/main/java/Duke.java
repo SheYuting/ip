@@ -117,10 +117,6 @@ public class Duke {
         int index = parseTaskIndex(command, "mark");
         Task task = toDoList.get(index);
         task.markTask();
-        System.out.println("____________________________________________________________");
-        System.out.println("Nice! I've marked this task as done:");
-        System.out.println("  " + task);
-        System.out.println("____________________________________________________________");
     }
 
     public static void unmarkTask(String command) throws DukeException {
