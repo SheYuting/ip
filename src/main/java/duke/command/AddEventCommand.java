@@ -1,11 +1,17 @@
-import java.util.Date;
+package duke.command;
 
-class AddEventCommand extends Command {
+import duke.main.Storage;
+import duke.main.TaskList;
+import duke.main.Ui;
+import duke.exception.DukeException;
+import duke.task.Event;
+
+public class AddEventCommand extends Command {
     private String description;
     private String start;
     private String end;
 
-    AddEventCommand(String command) throws DukeException{
+    public AddEventCommand(String command) throws DukeException {
         if (!command.contains(" /from ") || !command.contains(" /to ")) throw new DukeException("An event must have '/from ' and '/to '.");
         String[] parts = command.substring(6).split(" /from ");
         String[] timeParts = parts[1].split(" /to ");

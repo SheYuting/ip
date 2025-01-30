@@ -1,5 +1,11 @@
+package duke.main;
+
 import java.io.*;
-import java.util.ArrayList;
+import duke.exception.DukeException;
+import duke.task.Task;
+import duke.task.Todo;
+import duke.task.Deadline;
+import duke.task.Event;
 
 public class Storage {
     private final String filePath;
@@ -36,7 +42,7 @@ public class Storage {
             while ((line = reader.readLine()) != null) {
                 try {
                     tasks.addTask(parseTask(line)); // Try parsing each line
-                } catch (DukeException e) {  // Catch DukeException here
+                } catch (DukeException e) {  // Catch duke.command.exception.DukeException here
                     ui.printMessage("Corrupt data detected. Deleting existing file.");
                     file.delete(); // Delete corrupted file
                     return new TaskList(); // Return empty list

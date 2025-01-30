@@ -1,3 +1,5 @@
+package duke.task;
+
 public class Todo extends Task {
     private static String statum = "[T]";
 
@@ -5,7 +7,7 @@ public class Todo extends Task {
         super(name, false);
     }
 
-    Todo(String name, boolean isDone) {
+    public Todo(String name, boolean isDone) {
         super(name, isDone);
     }
 

@@ -1,7 +1,15 @@
+package duke.command;
+
+import duke.main.Storage;
+import duke.main.TaskList;
+import duke.main.Ui;
+import duke.task.Task;
+import duke.exception.DukeException;
+
 public class UnmarkTaskCommand extends Command {
     private int zeroIndex;
 
-    UnmarkTaskCommand(String command) throws DukeException {
+    public UnmarkTaskCommand(String command) throws DukeException {
         this.zeroIndex = parseTaskIndex(command, "unmark");
     }
 
@@ -31,7 +39,7 @@ public class UnmarkTaskCommand extends Command {
             int index = Integer.parseInt(parts[1]) - 1;
             return index;
         } catch (NumberFormatException e) {
-            throw new DukeException("Task number must be a valid integer.");
+            throw new DukeException("task.Task number must be a valid integer.");
         }
     }
 }
