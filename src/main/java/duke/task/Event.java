@@ -11,7 +11,7 @@ public class Event extends Task {
     private LocalDate end;
 
     private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("d/M/yyyy"); // e.g., 2/12/2019 1800
-    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy"); // e.g., Dec 02 2019, 6:00 PM
+    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy"); // e.g., Dec 02 2019
 
     // Constructor for an event with start and end dates
     public Event(String name, String start, String end) throws DukeException {
@@ -20,7 +20,7 @@ public class Event extends Task {
             this.start = LocalDate.parse(start, INPUT_FORMAT); // Parse the start date and time
             this.end = LocalDate.parse(end, INPUT_FORMAT); // Parse the end date and time
         } catch (Exception e) {
-            throw new DukeException("Invalid date format! Please use d/M/yyyy HHmm (e.g., 2/12/2019 1800).");
+            throw new DukeException("Invalid date format! Please use d/M/yyyy (e.g., 2/12/2019).");
         }
     }
 
