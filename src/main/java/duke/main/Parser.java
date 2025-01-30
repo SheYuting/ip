@@ -1,14 +1,6 @@
 package duke.main;
 
-import duke.command.AddDeadlineCommand;
-import duke.command.AddEventCommand;
-import duke.command.AddToDoCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.MarkTaskCommand;
-import duke.command.UnmarkTaskCommand;
-import duke.command.ExitCommand;
-import duke.command.ListTaskCommand;
+import duke.command.*;
 import duke.exception.DukeException;
 
 public class Parser {
@@ -28,6 +20,8 @@ public class Parser {
                 return new UnmarkTaskCommand(fullCommand);
             case "delete":
                 return new DeleteCommand(fullCommand);
+            case "find":
+                return new FindCommand(fullCommand);
             case "list":
                 return new ListTaskCommand();
             case "bye":

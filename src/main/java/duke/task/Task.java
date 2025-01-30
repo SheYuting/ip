@@ -41,5 +41,9 @@ public abstract class Task {
         return this.status + " " + this.name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public abstract String toFileFormat();
 }

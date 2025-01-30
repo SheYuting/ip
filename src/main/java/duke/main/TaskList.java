@@ -64,4 +64,14 @@ public class TaskList {
     public void unmarkTask(int index) {
         getTask(index).unmarkTask();
     }
+
+    public ArrayList<Task> findTask(String toFind) {
+        ArrayList<Task> filteredTask = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getName().contains(toFind)) {
+                filteredTask.add(task);
+            }
+        }
+        return filteredTask;
+    }
 }
