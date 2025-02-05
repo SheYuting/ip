@@ -53,6 +53,11 @@ public class TaskList {
         return tasks.size();
     }
 
+    /**
+     * Returns the tasks in the list.
+     *
+     * @return The tasks in the task list.
+     */
     public ArrayList<Task> getTasks() {
         return tasks;
     }

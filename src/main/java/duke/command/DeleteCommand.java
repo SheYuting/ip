@@ -25,8 +25,7 @@ public class DeleteCommand extends Command {
 
         Task deletedTask = tasks.getTask(index);
         tasks.removeTask(index);
-        ui.printMessage("Noted. I've removed this task:\n  " + deletedTask);
-        ui.showLine();
+        ui.addMessage("Noted. I've removed this task:\n  " + deletedTask);
         storage.saveTasks(tasks);
     }
 
@@ -44,4 +43,5 @@ public class DeleteCommand extends Command {
             throw new DukeException("task.Task number must be a valid integer.");
         }
     }
+}
 
