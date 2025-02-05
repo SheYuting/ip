@@ -6,6 +6,9 @@ import duke.main.Ui;
 import duke.exception.DukeException;
 import duke.task.Task;
 
+/**
+ * DeleteCommand is a command to flag the conversation is ended.
+ */
 public class DeleteCommand extends Command {
     private int index;
 
