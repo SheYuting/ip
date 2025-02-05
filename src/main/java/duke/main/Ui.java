@@ -1,58 +1,55 @@
 package duke.main;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import duke.task.Task;
 
-/**
- * A Ui class to manage IO output.
- */
 public class Ui {
-    private StringBuilder output;
-
-    public Ui() {
-        output = new StringBuilder();
+    /**
+     * Greets the user when the Duke application starts.
+     */
+    public void showWelcome() {
+        System.out.println("Hello! I'm main.Duke");
+        System.out.println("What can I do for you?");
+        showLine();
     }
 
-    void resetOutput() {
-        output.setLength(0);
-    }
-
-    String showOutput() {
-        return output.toString();
-    }
-
-    private void appendToOutput(String message) {
-        output.append(message + "\n");
+    public String readCommand() {
+        return new Scanner(System.in).nextLine().trim();
     }
 
     public void showError(String message) {
-        appendToOutput("OOPS!!! " + message);
+        System.out.println("OOPS!!! " + message);
+        showLine();
     }
 
-    /**
-     * Prints the exit message.
-     *
-     */
+    public void showLine() {
+        System.out.println("____________________________________________________________");
+    }
+
     public void showGoodbye() {
-        appendToOutput("Bye. Hope to see you again!");
+        System.out.println("Bye. Hope to see you again!");
+        showLine();
     }
 
     public void showTaskList(ArrayList<Task> tasks) {
-        appendToOutput("Here are the tasks in your list:");
+        System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < tasks.size(); i++) {
-            appendToOutput((i + 1) + ". " + tasks.get(i));
+            System.out.println((i + 1) + ". " + tasks.get(i));
         }
+        showLine();
     }
 
     public void showTaskCount(int count) {
-        appendToOutput("Now you have " + count + " tasks in the list.");
+        System.out.println("Now you have " + count + " tasks in the list.");
     }
 
     public void addSuccess(Task task) {
-        appendToOutput("Got it. I've added this task: " + task);
+        System.out.println("Got it. I've added this task:\n  " + task);
+        showLine();
     }
 
-    public void addMessage(String message) {
-        appendToOutput(message);
+    public void printMessage(String message) {
+        System.out.println(message);
     }
 }
