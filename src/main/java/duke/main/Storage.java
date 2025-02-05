@@ -56,13 +56,13 @@ public class Storage {
                 try {
                     tasks.addTask(parseTask(line)); // Try parsing each line
                 } catch (DukeException e) {  // Catch duke.command.exception.DukeException here
-                    ui.printMessage("Corrupt data detected. Deleting existing file.");
+                    ui.addMessage("Corrupt data detected. Deleting existing file.");
                     file.delete(); // Delete corrupted file
                     return new TaskList(); // Return empty list
                 }
             }
         } catch (IOException e) {
-            ui.printMessage("Error loading tasks: " + e.getMessage());
+            ui.addMessage("Error loading tasks: " + e.getMessage());
         }
 
         return tasks;

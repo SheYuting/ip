@@ -20,8 +20,7 @@ public class MarkTaskCommand extends Command {
         }
 
         tasks.markTask(zeroIndex);
-        ui.printMessage("Nice! I've marked this task as done: \n" + tasks.getTask(zeroIndex));
-        ui.showLine();
+        ui.addMessage("Nice! I've marked this task as done: \n" + tasks.getTask(zeroIndex));
         storage.saveTasks(tasks);
     }
 
