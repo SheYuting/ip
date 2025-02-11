@@ -12,7 +12,9 @@ public class AddDeadlineCommand extends Command {
     private String date;
 
     public AddDeadlineCommand(String command) throws DukeException {
-        if (!command.contains(" /by ")) throw new DukeException("A deadline must have '/by '.");
+        assert command.length() > 0;
+        if (!command.contains(" /by "))
+            throw new DukeException("A deadline must have '/by '.");
         String[] parts = command.substring(9).split(" /by ");
         if (parts.length < 2) throw new DukeException("Incomplete deadline format.");
         this.description = parts[0].trim();

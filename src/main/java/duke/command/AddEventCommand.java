@@ -12,6 +12,7 @@ public class AddEventCommand extends Command {
     private String end;
 
     public AddEventCommand(String command) throws DukeException {
+        assert command.length() > 0;
         if (!command.contains(" /from ") || !command.contains(" /to ")) throw new DukeException("An event must have '/from ' and '/to '.");
         String[] parts = command.substring(6).split(" /from ");
         String[] timeParts = parts[1].split(" /to ");
