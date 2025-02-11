@@ -7,6 +7,9 @@ import duke.exception.DukeException;
 import duke.task.Task;
 import duke.task.Deadline;
 
+/**
+ * AddToDo Command is a command to add a deadline task into the tasklist.
+ */
 public class AddDeadlineCommand extends Command {
     private String description;
     private String date;
