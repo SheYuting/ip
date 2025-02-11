@@ -26,6 +26,7 @@ public class TaskList {
      * @param task The task to add.
      */
     public void addTask(Task task) {
+        assert task != null;
         tasks.add(task);
     }
 
@@ -40,6 +41,7 @@ public class TaskList {
     }
 
     public Task getTask(int index) {
+        assert index >= 0 && index < tasks.size();
         return tasks.get(index);
     }
 
@@ -62,14 +64,17 @@ public class TaskList {
     }
 
     public void markTask(int index) {
+        assert index >= 0 && index < tasks.size();
         getTask(index).markTask();
     }
 
     public void unmarkTask(int index) {
+        assert index >= 0 && index < tasks.size();
         getTask(index).unmarkTask();
     }
 
     public ArrayList<Task> findTask(String toFind) {
+        assert toFind != null && !toFind.isEmpty();
         ArrayList<Task> filteredTask = new ArrayList<>();
         for (Task task : tasks) {
             if (task.getName().contains(toFind)) {

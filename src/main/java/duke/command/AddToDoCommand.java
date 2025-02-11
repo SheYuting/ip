@@ -14,6 +14,7 @@ public class AddToDoCommand extends Command {
     private String description;
 
     public AddToDoCommand(String command) {
+        assert command != null;
         this.description = command.substring(5).trim();
     }
 
