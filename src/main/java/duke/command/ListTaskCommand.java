@@ -5,6 +5,9 @@ import duke.main.TaskList;
 import duke.main.Ui;
 import duke.exception.DukeException;
 
+/**
+ * ListTask Command is a command to list all the tasks in the tasklist.
+ */
 public class ListTaskCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {

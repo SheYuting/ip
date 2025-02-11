@@ -3,13 +3,12 @@ package duke.main;
 import java.util.ArrayList;
 import duke.task.Task;
 
+/**
+ * Manages the list of tasks, including adding, removing, and displaying tasks.
+ */
 public class TaskList {
 
-    /**
-     * Manages the list of tasks, including adding, removing, and displaying tasks.
-     */
     private ArrayList<Task> tasks;
-
     /**
      * Constructs an empty TaskList.
      */

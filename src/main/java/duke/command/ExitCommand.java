@@ -5,6 +5,9 @@ import duke.main.TaskList;
 import duke.main.Ui;
 import duke.exception.DukeException;
 
+/**
+ * ExitCommand is a command to flag the conversation is ended.
+ */
 public class ExitCommand extends Command {
 
     @Override

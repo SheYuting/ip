@@ -7,12 +7,16 @@ import duke.exception.DukeException;
 import duke.task.Task;
 import duke.task.Deadline;
 
+/**
+ * AddToDo Command is a command to add a deadline task into the tasklist.
+ */
 public class AddDeadlineCommand extends Command {
     private String description;
     private String date;
 
     public AddDeadlineCommand(String command) throws DukeException {
-        if (!command.contains(" /by ")) throw new DukeException("A deadline must have '/by '.");
+        if (!command.contains(" /by "))
+            throw new DukeException("A deadline must have '/by '.");
         String[] parts = command.substring(9).split(" /by ");
         if (parts.length < 2) throw new DukeException("Incomplete deadline format.");
         this.description = parts[0].trim();

@@ -6,6 +6,9 @@ import duke.main.Ui;
 import duke.task.Task;
 import duke.exception.DukeException;
 
+/**
+ * UnmarkTask Command is a command to mark a task as not done.
+ */
 public class UnmarkTaskCommand extends Command {
     private int zeroIndex;
 

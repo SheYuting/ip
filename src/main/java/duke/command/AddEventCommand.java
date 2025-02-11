@@ -6,6 +6,9 @@ import duke.main.Ui;
 import duke.exception.DukeException;
 import duke.task.Event;
 
+/**
+ * AddEvent Command is a command to add an event task into the tasklist.
+ */
 public class AddEventCommand extends Command {
     private String description;
     private String start;

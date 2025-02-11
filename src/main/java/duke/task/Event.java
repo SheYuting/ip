@@ -5,6 +5,9 @@ import duke.exception.DukeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task with a start and end time.
+ */
 public class Event extends Task {
     private static final String STATUM = "[E]";
     private LocalDate start;

@@ -5,6 +5,9 @@ import duke.main.TaskList;
 import duke.main.Ui;
 import duke.exception.DukeException;
 
+/**
+ * MarkTask Command is a command to mark a task as done.
+ */
 public class MarkTaskCommand extends Command {
     private int zeroIndex;
 

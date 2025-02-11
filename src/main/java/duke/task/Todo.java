@@ -1,5 +1,8 @@
 package duke.task;
 
+/**
+ * Represents a task to be done later,
+ */
 public class Todo extends Task {
     private static String statum = "[T]";
 

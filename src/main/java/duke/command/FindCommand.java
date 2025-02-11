@@ -8,6 +8,9 @@ import duke.task.Task;
 
 import java.util.ArrayList;
 
+/**
+ * Find Command is a command to find a task from the tasklist.
+ */
 public class FindCommand extends Command {
     private String toFind;
 

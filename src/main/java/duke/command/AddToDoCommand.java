@@ -7,6 +7,9 @@ import duke.exception.DukeException;
 import duke.task.Task;
 import duke.task.Todo;
 
+/**
+ * AddToDo Command is a command to add a todo task into the tasklist.
+ */
 public class AddToDoCommand extends Command {
     private String description;
 
