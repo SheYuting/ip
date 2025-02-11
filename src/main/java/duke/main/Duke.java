@@ -11,6 +11,7 @@ public class Duke {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
+    private Statistics stats;
     private static final String DEFAULT_FILE_PATH = "./data/duke.txt";
     private boolean isExit = false;
 
@@ -29,6 +30,8 @@ public class Duke {
             ui.addMessage(e.getMessage());
             tasks = new TaskList();
         }
+
+        stats = new Statistics(tasks);
     }
 
     public String getOutput(String input) {
@@ -39,7 +42,7 @@ public class Duke {
         try {
             ui.resetOutput();
             Command command = Parser.parse(input);
-            command.execute(tasks, ui, storage);
+            command.execute(tasks, ui, storage, stats);
             isExit = command.isExit();
             return ui.showOutput();
         } catch (DukeException e) {

@@ -46,4 +46,8 @@ public abstract class Task {
     }
 
     public abstract String toFileFormat();
+
+    public boolean getIsDone() {
+        return this.isDone;
+    }
 }

@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.main.Statistics;
 import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
@@ -17,13 +18,15 @@ public class UnmarkTaskCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void execute(TaskList tasks, Ui ui, Storage storage,
+                        Statistics stats) throws DukeException {
         if (zeroIndex < 0 || zeroIndex >= tasks.getSize()) {
             throw new DukeException("OOPS!!! The index to mark as done cannot be less than 0 or "
                     + "greater than the length of the list.");
         }
         Task task = tasks.getTask(zeroIndex);
         tasks.unmarkTask(zeroIndex);
+        stats.addNotDone();
         ui.addMessage("OK, I've marked this task as not done yet: " );
         ui.addMessage(task.toString());
         storage.saveTasks(tasks);

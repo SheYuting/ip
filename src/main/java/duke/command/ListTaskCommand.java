@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.main.Statistics;
 import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
@@ -10,7 +11,7 @@ import duke.exception.DukeException;
  */
 public class ListTaskCommand extends Command {
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public void execute(TaskList tasks, Ui ui, Storage storage, Statistics stats) {
         ui.showTaskList(tasks.getTasks());
     }
 

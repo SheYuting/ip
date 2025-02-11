@@ -29,6 +29,8 @@ public class Parser {
             return new ListTaskCommand();
         case "bye":
             return new ExitCommand();
+        case "stats":
+            return new StatsCommand();
         default:
             throw new DukeException("Unknown duke.command.");
         }

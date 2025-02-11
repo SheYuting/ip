@@ -1,6 +1,7 @@
 package duke.command;
 
 import duke.exception.DukeException;
+import duke.main.Statistics;
 import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
@@ -22,7 +23,7 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public void execute(TaskList tasks, Ui ui, Storage storage, Statistics stats) {
         ArrayList<Task> filteredTasks = tasks.findTask(toFind);
         ui.addMessage("Here are the matching tasks in your list:");
         ui.showTaskList(filteredTasks);

@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.main.Statistics;
 import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
@@ -17,7 +18,8 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void execute(TaskList tasks, Ui ui, Storage storage,
+                        Statistics stats) throws DukeException {
         if (index < 0 || index >= tasks.getSize()) {
             throw new DukeException("OOPS!!! The index to delete cannot be less than 0 or "
                     + "greater than the length of the list.");
@@ -25,6 +27,7 @@ public class DeleteCommand extends Command {
 
         Task deletedTask = tasks.getTask(index);
         tasks.removeTask(index);
+        stats.deleteTask(deletedTask);
         ui.addMessage("Noted. I've removed this task:\n  " + deletedTask);
         storage.saveTasks(tasks);
     }

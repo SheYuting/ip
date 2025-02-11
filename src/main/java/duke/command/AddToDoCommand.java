@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.main.Statistics;
 import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
@@ -19,12 +20,14 @@ public class AddToDoCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException {
+    public void execute(TaskList tasks, Ui ui, Storage storage,
+                        Statistics stats) throws DukeException {
         if (description.isEmpty()) {
             throw new DukeException("The description of a todo cannot be empty.");
         }
         Task task = new Todo(description);
         tasks.addTask(task);
+        stats.addNotDone();
         ui.addSuccess(task);
         ui.showTaskCount(tasks.getSize());
         try {
