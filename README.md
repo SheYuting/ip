@@ -11,16 +11,15 @@ Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event
 [Download](https://github.com/SheYuting/ip/tag/A-Jar) the latest release in GitHub
 Open the terminal and run the project:
 java -jar duke.jar
-Supported Commands 📋
 
-### Here’s a list of commands Duke recognizes:
+###Supported Commands 📋
 
 1. list: Display all tasks.
 2. todo, deadline, event: Add different types of tasks.
 3. delete: delete a task.
 4. mark, unmark: mark or unmark the task as done.
 5. find: find a task.
-6. stats: generate a stats of tasks done and not done.
+6. stats: see the stats of tasks done and not done. 
 7. bye: exit the chatbot.
 
 ### Development Tasks ✅
