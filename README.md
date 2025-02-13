@@ -1,19 +1,18 @@
 # Duke Chatbot Project 🌟
 
-## Welcome to Duke, 
+### Welcome to Duke, 
 an interactive chatbot application designed to manage tasks efficiently. This project supports various task-related commands, including adding, marking, deleting, and finding tasks. Below are instructions and details of the implementation.
 
-## Features of the Project 🛠️
+### Features of the Project 🛠️
 Task Management: Add, delete, and modify tasks in real-time.
 File Storage: Save and load tasks from a file on disk.
 Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event).
-## How to Run the Project 🚀
+### How to Run the Project 🚀
 [Download](https://github.com/SheYuting/ip/tag/A-Jar) the latest release in GitHub
 Open the terminal and run the project:
 java -jar duke.jar
-Supported Commands 📋
 
-## Here’s a list of commands Duke recognizes:
+###Supported Commands 📋
 
 1. list: Display all tasks.
 2. todo, deadline, event: Add different types of tasks.
@@ -23,7 +22,7 @@ Supported Commands 📋
 6. stats: see the stats of tasks done and not done. 
 7. bye: exit the chatbot.
 
-## Development Tasks ✅
+### Development Tasks ✅
  Implement task storage functionalities.
  Add command parsing logic.
  Include Unit Tests and System Tests for error handling.
