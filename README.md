@@ -12,7 +12,7 @@ Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event
 Open the terminal and run the project:
 java -jar duke.jar
 
-###Supported Commands 📋
+### Supported Commands 📋
 
 1. list: Display all tasks.
 2. todo, deadline, event: Add different types of tasks.
