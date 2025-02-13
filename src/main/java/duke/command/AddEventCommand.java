@@ -5,7 +5,6 @@ import duke.main.Storage;
 import duke.main.TaskList;
 import duke.main.Ui;
 import duke.exception.DukeException;
-import duke.task.Task;
 import duke.task.Event;
 
 /**
@@ -29,7 +28,7 @@ public class AddEventCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage,
                         Statistics stats) throws DukeException {
-        Task event = new Event(description, start, end);
+        Event event = event = new Event(description, start, end);
         tasks.addTask(event);
         stats.addNotDone();
         ui.addSuccess(event);
