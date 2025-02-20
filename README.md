@@ -8,7 +8,7 @@ Task Management: Add, delete, and modify tasks in real-time.
 File Storage: Save and load tasks from a file on disk.
 Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event).
 ### How to Run the Project 🚀
-[Download](https://github.com/SheYuting/ip/tag/A-Release) the latest release in GitHub
+[Download](https://github.com/SheYuting/ip/releases/tag/A-Release) the latest release in GitHub
 Open the terminal and run the project:
 java -jar xuxin.jar
 
