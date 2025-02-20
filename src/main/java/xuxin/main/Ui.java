@@ -63,7 +63,7 @@ public class Ui {
      * @param task the task that is added to the task list.
      */
     public void addSuccess(Task task) {
-        appendToOutput("Got it. I've added this task: \n" + task);
+        appendToOutput("Got it. I've added this task: \n" + task.toString());
     }
 
     /**

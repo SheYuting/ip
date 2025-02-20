@@ -1,2 +1,2 @@
-T | 0 | have fun
-D | 0 | have lunch | 2/2/2025
+E | 1 | dance | 12/12/2024 | 12/12/2024
+T | 0 | writing
