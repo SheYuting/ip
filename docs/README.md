@@ -1,15 +1,10 @@
 # main.Xuxin User Guide
 
-// Update the title above to match the actual product name
-
-// Product screenshot goes here
 <img width="299" alt="Ui" src="https://github.com/user-attachments/assets/f02e3447-23f1-4f7e-af79-e911269444ae" />
 
-// Product intro goes here
 ### Welcome to Chatbot Xuxin, 
 an **interactive chatbot application** designed to manage tasks efficiently. This project supports various task-related commands, including adding, marking, deleting, and finding tasks. Below are instructions and details of the implementation.
 
-// Describe the action and its outcome.
 ### Here’s a list of commands Xuxin recognizes:
 
 1. list: Display all tasks.
@@ -22,20 +17,17 @@ an **interactive chatbot application** designed to manage tasks efficiently. Thi
 
 Example: `todo do homework`
 
-// A description of the expected outcome goes here
-
 ```
 expected output
 ```
 Got it! I've added this task: 
 [T][ ] do homework
 Now you have one tasks in the list.
+
 ## Feature ABC
 
-// Feature details
 Task Management: Add, delete, and modify tasks in real-time.
 
 ## Feature XYZ
 
-// Feature details
 Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event).
