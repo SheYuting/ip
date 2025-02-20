@@ -18,11 +18,10 @@ an **interactive chatbot application** designed to manage tasks efficiently. Thi
 Example: `todo do homework`
 
 ```
-expected output
-```
 Got it! I've added this task: 
 [T][ ] do homework
 Now you have one tasks in the list.
+```
 
 ## Feature ABC
 
