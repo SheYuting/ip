@@ -49,7 +49,7 @@ public class Ui {
     }
 
     public void addSuccess(Task task) {
-        appendToOutput("Got it. I've added this task: " + task);
+        appendToOutput("Got it. I've added this task: \n" + task);
     }
 
     public void addMessage(String message) {
