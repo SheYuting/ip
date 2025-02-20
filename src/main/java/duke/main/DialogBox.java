@@ -15,6 +15,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.geometry.Insets;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**
  * This control represents a dialog box consisting of an ImageView to represent the speaker's face and a label
@@ -47,6 +53,21 @@ class DialogBox extends HBox {
         displayPicture.setFitWidth(radius * 2);
         displayPicture.setFitHeight(radius * 2);
         displayPicture.setClip(clip);
+
+        this.setSpacing(20);  // Add spacing between image and text
+        this.setPadding(new Insets(10));
+
+        // Increase font size
+        dialog.setFont(new Font(14));
+
+        // Styling the chat bubble
+        dialog.setPadding(new Insets(20));
+        dialog.setBackground(new Background(new BackgroundFill(
+                Color.LIGHTGRAY, new CornerRadii(20), Insets.EMPTY)));
+
+        // Ensure text wraps nicely inside the bubble
+        dialog.setWrapText(true);
+        dialog.setMaxWidth(300);
     }
 
     /**

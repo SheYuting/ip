@@ -23,14 +23,14 @@ public class Parser {
             return new UnmarkTaskCommand(fullCommand);
         case "delete":
             return new DeleteCommand(fullCommand);
-        case "find":
-            return new FindCommand(fullCommand);
         case "list":
             return new ListTaskCommand();
         case "bye":
             return new ExitCommand();
         case "stats":
             return new StatsCommand();
+        case "help":
+            return new HelpCommand();
         default:
             throw new DukeException("Unknown duke.command.");
         }

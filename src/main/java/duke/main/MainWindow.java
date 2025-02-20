@@ -63,7 +63,8 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void showWelcomeMessage() {
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog("Welcome to Duke!", dukeImage)
+                DialogBox.getDukeDialog("Hey! Welcome to Duke! Type help to see the command list " +
+                                "and data input format!", dukeImage)
         );
     }
 }
