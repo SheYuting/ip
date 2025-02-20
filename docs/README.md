@@ -13,7 +13,6 @@ an **interactive chatbot application** designed to manage tasks efficiently. Thi
 4. mark, unmark: mark or unmark the task as done.
 5. find: find a task.
 6. bye: exit the chatbot.
-// Give examples of usage
 
 Example: `todo do homework`
 
