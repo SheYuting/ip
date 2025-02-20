@@ -10,7 +10,7 @@ Command Recognition: Recognizes multiple task types (e.g., todo, deadline, event
 ### How to Run the Project 🚀
 [Download](https://github.com/SheYuting/ip/tag/A-Jar) the latest release in GitHub
 Open the terminal and run the project:
-java -jar duke.jar
+java -jar xuxin.jar
 
 ### Supported Commands 📋
 
