@@ -18,7 +18,7 @@ public class ParserTest {
         assertTrue(Parser.parse("bye") instanceof ExitCommand);
         assertTrue(Parser.parse("list") instanceof ListTaskCommand);
         assertTrue(Parser.parse("todo a") instanceof AddToDoCommand);
-        assertTrue(Parser.parse("mark 0") instanceof MarkTaskCommand);
+        assertTrue(Parser.parse("mark 1") instanceof MarkTaskCommand);
         assertTrue(Parser.parse("delete 0") instanceof DeleteCommand);
         assertTrue(Parser.parse("todo todo") instanceof AddToDoCommand);
         assertTrue(Parser.parse("deadline deadline /by 25/07/2015") instanceof AddDeadlineCommand);

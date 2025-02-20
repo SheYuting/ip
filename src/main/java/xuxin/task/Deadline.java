@@ -4,6 +4,7 @@ import xuxin.exception.DukeException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 /**
  * Represents a task with a deadline.
@@ -12,7 +13,7 @@ public class Deadline extends Task {
     private static final String STATUM = "[D]";
     private LocalDate date;
     private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("d/M/yyyy"); // e.g., 2/12/2019
-    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy"); // e.g., Dec 02 2019, 6:00 PM
+    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.ENGLISH); // e.g., Dec 02 2019, 6:00 PM
 
     /**
      * Constructs a Deadline task with a name and due date.

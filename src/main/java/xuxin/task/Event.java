@@ -4,6 +4,7 @@ import xuxin.exception.DukeException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 /**
  * Represents a task with a start and end time.
@@ -14,7 +15,7 @@ public class Event extends Task {
     private LocalDate end;
 
     private static final DateTimeFormatter INPUT_FORMAT = DateTimeFormatter.ofPattern("d/M/yyyy"); // e.g., 2/12/2019 1800
-    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy"); // e.g., Dec 02 2019
+    private static final DateTimeFormatter OUTPUT_FORMAT = DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.ENGLISH); // e.g., Dec 02 2019
 
     // Constructor for an event with start and end dates
     public Event(String name, String start, String end) throws DukeException {
