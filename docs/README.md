@@ -1,6 +1,6 @@
 # main.Xuxin User Guide
 
-<img width="299" alt="Ui" src="docs/Ui.png" />
+<img width="299" alt="Ui" src="docs/Ui.png" >
 
 ### Welcome to Chatbot Xuxin, 
 an **interactive chatbot application** designed to manage tasks efficiently. This project supports various task-related commands, including adding, marking, deleting, and finding tasks. Below are instructions and details of the implementation.
