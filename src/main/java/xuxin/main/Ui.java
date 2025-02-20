@@ -13,6 +13,9 @@ public class Ui {
         output = new StringBuilder();
     }
 
+    /**
+     * Set the output to an empty String.
+     */
     void resetOutput() {
         output.setLength(0);
     }
@@ -31,12 +34,15 @@ public class Ui {
 
     /**
      * Prints the exit message.
-     *
      */
     public void showGoodbye() {
         appendToOutput("Bye. Hope to see you again!");
     }
 
+    /**
+     * Prints the tasks in the ArrayList.
+     * @param tasks an ArrayList storing all tasks.
+     */
     public void showTaskList(ArrayList<Task> tasks) {
         appendToOutput("Here are the tasks in your list:");
         for (int i = 0; i < tasks.size(); i++) {
@@ -44,14 +50,26 @@ public class Ui {
         }
     }
 
+    /**
+     * Prints the number of task in the task list.
+     * @param count the count in the task list.
+     */
     public void showTaskCount(int count) {
         appendToOutput("Now you have " + count + " tasks in the list.");
     }
 
+    /**
+     * Prints the message saying a task is added to the task list.
+     * @param task the task that is added to the task list.
+     */
     public void addSuccess(Task task) {
         appendToOutput("Got it. I've added this task: \n" + task);
     }
 
+    /**
+     * Prints the message to be passed into the Ui.
+     * @param message the task that is added to the task list.
+     */
     public void addMessage(String message) {
         appendToOutput(message);
     }

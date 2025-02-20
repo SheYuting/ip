@@ -4,7 +4,7 @@ import xuxin.command.Command;
 import xuxin.exception.DukeException;
 
 /**
- * Duke is a chatbot that helps users manage their tasks.
+ * Xuxin is a chatbot that helps users manage their tasks.
  */
 public class Xuxin {
     private Storage storage;
@@ -14,11 +14,6 @@ public class Xuxin {
     private static final String DEFAULT_FILE_PATH = "./data/duke.txt";
     private boolean isExit = false;
 
-    /**
-     * The main entry point of the Duke application.
-     * Loads tasks from storage and processes user commands in a loop.
-     *
-     */
     public Xuxin() {
         storage = new Storage(DEFAULT_FILE_PATH);
         ui = new Ui();
@@ -33,6 +28,11 @@ public class Xuxin {
         stats = new Statistics(tasks);
     }
 
+    /**
+     * Execute the each command to capture the String output.
+     * @param input the message to be passed to ui
+     * @return ui output
+     */
     public String getOutput(String input) {
         if (isExit) {
             return "";

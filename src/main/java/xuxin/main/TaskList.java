@@ -9,9 +9,7 @@ import xuxin.task.Task;
 public class TaskList {
 
     private ArrayList<Task> tasks;
-    /**
-     * Constructs an empty TaskList.
-     */
+
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
@@ -63,24 +61,21 @@ public class TaskList {
         return tasks;
     }
 
+    /**
+     * mark the task as done in the list.
+     * @param index The index of the task in the list.
+     */
     public void markTask(int index) {
         assert index >= 0 && index < tasks.size();
         getTask(index).markTask();
     }
 
+    /**
+     * mark the task as not done in the list.
+     * @param index The index of the task in the list.
+     */
     public void unmarkTask(int index) {
         assert index >= 0 && index < tasks.size();
         getTask(index).unmarkTask();
-    }
-
-    public ArrayList<Task> findTask(String toFind) {
-        assert toFind != null && !toFind.isEmpty();
-        ArrayList<Task> filteredTask = new ArrayList<>();
-        for (Task task : tasks) {
-            if (task.getName().contains(toFind)) {
-                filteredTask.add(task);
-            }
-        }
-        return filteredTask;
     }
 }

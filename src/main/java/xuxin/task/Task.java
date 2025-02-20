@@ -41,6 +41,10 @@ public abstract class Task {
         return this.status + " " + this.name;
     }
 
+    /**
+     * Get the name of the Task
+     * @return name
+     */
     public String getName() {
         return this.name;
     }
