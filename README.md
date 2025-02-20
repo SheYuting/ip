@@ -1,6 +1,6 @@
-# Duke Chatbot Project 🌟
+# Xuxin Chatbot Project 🌟
 
-### Welcome to Duke, 
+### Welcome to Chatbot Xuxin, 
 an interactive chatbot application designed to manage tasks efficiently. This project supports various task-related commands, including adding, marking, deleting, and finding tasks. Below are instructions and details of the implementation.
 
 ### Features of the Project 🛠️
